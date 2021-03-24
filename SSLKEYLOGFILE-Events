@@ -1,0 +1,11 @@
+<Sysmon schemaversion="4.22">
+<EventFiltering>
+<!--SSL Key Log File System and User Environment Variables-->
+<RuleGroup name="" groupRelation="or">
+	<RegistryEvent onmatch="include">
+		<TargetObject name="SSLKEYLOGFILE-Machine" condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\SSLKEYLOGFILE</TargetObject>
+		<TargetObject name="SSLKEYLOGFILE-User" condition="end with">\Environment\SSLKEYLOGFILE</TargetObject>
+	</RegistryEvent>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>
